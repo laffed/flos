@@ -28,6 +28,7 @@ export const RootStack = createNativeStackNavigator({
       screen: EditInfoFieldView,
       options: ({ route }) => {
         return {
+          // @ts-expect-error -- new react-navigation static props need configuring
           title: route.params.title,
         };
       },

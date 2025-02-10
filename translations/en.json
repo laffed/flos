@@ -7,6 +7,11 @@
     "phoneNumber": "Phone number"
   },
   "buttons": {
+    "continue": "CONTINUE",
     "update": "UPDATE"
+  },
+  "startView": {
+    "title": "Welcome back",
+    "description": "Looks like your account creation got interrupted by evil forces. Tap continue to review your info."
   }
 }

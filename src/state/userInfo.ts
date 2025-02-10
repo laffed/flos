@@ -14,7 +14,7 @@ export type UserInfoState = {
 export type UserInfoKey = keyof UserInfoState;
 
 const userInfoState = hookstate({
-  tag: 'asdf',
+  tag: '@8b1e41e889a95bd2',
   firstName: 'Jane',
   lastName: 'Doe',
   email: 'janedoe@aol.com',
