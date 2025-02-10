@@ -1,24 +1,13 @@
-import { useTranslation } from 'react-i18next';
-import {
-  StyleSheet, Text, View
-} from 'react-native';
+import { PaperProvider } from 'react-native-paper';
+
+import { Navigation } from './navigation';
 
 
 export const App = () => {
-  const { t } = useTranslation();
 
   return (
-    <View style={styles.container}>
-      <Text>{t('hello-world')}</Text>
-    </View>
+    <PaperProvider>
+      <Navigation />
+    </PaperProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -23,6 +23,7 @@ module.exports = function(api) {
             '@core': './src/core',
             '@styles': './src/styles',
             '@hooks': './src/util/hooks',
+            '@toolbox': './src/toolbox'
           },
         },
       ],

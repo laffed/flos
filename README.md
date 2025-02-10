@@ -1,16 +1,8 @@
-# rn-lazy
+# flos
+// TODO
 
-a minimal expo template
+// startup instructions
 
-  - bare necessities 
-  - opinionated eslint
+// llm non-use disclaimer: human made
 
-## usage
 
-```
-expo init --template @laffed/rn-lazy
-
-or
-
-npx create-expo-app --template @laffed/rn-lazy
-```

@@ -1,3 +1,9 @@
 {
-  "hello-world": "Hello, World!"
+  "userInfo": {
+    "tag": "Mos tag",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phoneNumber": "Phone number"
+  }
 }
