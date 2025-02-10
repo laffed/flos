@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import {
+  StyleProp, StyleSheet, ViewStyle
+} from 'react-native';
 import { PropsWithChildren, useMemo } from 'react';
 import { SafeAreaView, Edges } from 'react-native-safe-area-context';
 
@@ -10,6 +12,7 @@ type Props = PropsWithChildren<{
   bottom?: boolean;
   right?: boolean;
   left?: boolean;
+  style?: StyleProp<ViewStyle>;
 }>;
 export const Screen = ({
   children,
@@ -17,7 +20,13 @@ export const Screen = ({
   bottom = true,
   right = true,
   left = true,
+  style: propStyles,
 }: Props) => {
+
+  const mergedStyles = StyleSheet.compose(
+    styles.screen,
+    propStyles
+  );
 
   const edges = useMemo(() => {
     return [
@@ -29,7 +38,7 @@ export const Screen = ({
   }, [top, bottom, right, left]);
 
   return (
-    <SafeAreaView edges={edges} style={styles.screen}>
+    <SafeAreaView edges={edges} style={mergedStyles}>
       {children}
     </SafeAreaView>
   );
@@ -40,15 +49,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     flex: 1,
     backgroundColor: Color.white,
-  },
-  navbar: {
-    flexDirection: 'row',
-  },
-  title: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  skeleton: {
-    width: 40,
   },
 });

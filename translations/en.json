@@ -5,5 +5,8 @@
     "lastName": "Last name",
     "email": "Email",
     "phoneNumber": "Phone number"
+  },
+  "buttons": {
+    "update": "UPDATE"
   }
 }

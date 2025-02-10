@@ -10,20 +10,39 @@ import { UserInfoKey, useUserInfoState } from '@app/state';
 import { Screen } from '@app/components/Screen';
 
 
-const USER_INFO_KEYS: UserInfoKey[] = [
-  'tag',
-  'firstName',
-  'lastName',
-  'email',
-  'phoneNumber'
+type InfoItem = {
+  infoKey: UserInfoKey;
+  editable: boolean;
+}
+const USER_INFO_KEYS: InfoItem[] = [
+  {
+    infoKey: 'tag',
+    editable: false,
+  },
+  {
+    infoKey: 'firstName',
+    editable: true,
+  },
+  {
+    infoKey: 'lastName',
+    editable: true,
+  },
+  {
+    infoKey: 'email',
+    editable: true,
+  },
+  {
+    infoKey: 'phoneNumber',
+    editable: true,
+  }
 ];
 
 type Props = StaticScreenProps<undefined>
 export const UserInfoView = (_props: Props) => {
 
-  const renderItem = useCallback((item: UserInfoKey) => {
+  const renderItem = useCallback((item: InfoItem) => {
     return (
-      <InfoItem key={item} infoKey={item} />
+      <InfoItem key={item.infoKey} {...item} />
     );
   }, []);
 
@@ -35,7 +54,7 @@ export const UserInfoView = (_props: Props) => {
   );
 };
 
-const InfoItem = ({ infoKey }: { infoKey: UserInfoKey }) => {
+const InfoItem = ({ infoKey, editable }: InfoItem) => {
   const { t } = useTranslation();
   const { get } = useUserInfoState();
   const { navigate } = useNavigation();
@@ -50,7 +69,7 @@ const InfoItem = ({ infoKey }: { infoKey: UserInfoKey }) => {
   }, [infoKey, navigate, title]);
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} disabled={!editable}>
       <View style={styles.itemRow}>
         <Text variant='titleMedium'>{title}</Text>
         <Text variant='titleMedium'>{get(infoKey)}</Text>
